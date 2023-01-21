@@ -15,14 +15,18 @@
     <script defer src="/javascripts/main.js"></script>
   </head>
   <body>
-    <header #>
+    <nav>
       <h1>jobSeekr 🤝</h1>
-      <nav>
-        <a href="/">Dashboard</a>
+      <div id="nav-links">
+        <% if (user) { %>
+        <a href="#">Dashboard</a>
         <a href="/jobs/">All jobs</a>
         <a href="/jobs/new">Create new job</a>
-        <a href="#">Log out</a>
-      </nav>
-    </header>
+        <a href="/logout">Log out</a>
+        <% } else { %>
+        <a href="/auth/google">Log in</a>
+        <% } %>
+      </div>
+    </nav>
   </body>
 </html>
