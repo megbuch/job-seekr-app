@@ -13,7 +13,3 @@ JobSeekr is the best way to organize all aspects of your job search. Ditch the s
 <h3>Wireframes</h3>
 
 <img src="https://user-images.githubusercontent.com/115611931/213861837-7297c55e-c9d9-4d2e-b2a1-f99c57be02e1.png">
-
-<h3>Entity Relationship Diagram (ERD)</h3>
-
-<img src="https://user-images.githubusercontent.com/115611931/213862090-fd87a38b-c5df-4b3c-bed1-7b2f2980a607.png" width="400">
