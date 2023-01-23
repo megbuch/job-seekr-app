@@ -1,0 +1,144 @@
+<%- include('../partials/header') %>
+
+<h1>Job Editor</h1>
+<a href="/jobs/<%= job.id %>"> go back 👈🏼</a>
+<form action="/jobs/<%= job.id %>?_method=PUT" method="POST" autocomplete="off">
+  <label>Company Name *</label>
+  <input
+    type="string"
+    name="companyName"
+    value="<%= job.companyName %>"
+  /><br />
+  <label>Position *</label>
+  <input type="string" name="job" value="<%= job.job %>" /><br />
+  <label>Industry</label>
+  <input type="string" name="industry" value="<%= job.industry %>" /><br />
+  <label>Work Style</label>
+  <select name="workStyle">
+    <option value="In-Person">In-Person</option>
+    <option value="Hybrid">Hybrid</option>
+    <option value="Remote">Remote</option>
+  </select>
+  <label>URL of Job Listing</label>
+  <input
+    type="string"
+    name="jobListingUrl"
+    value="<%= job.jobListingUrl %>"
+  /><br />
+  <label>Job Description</label>
+  <textarea rows="8" cols="70" type="string" name="jobDescription">
+<%= job.jobDescription %></textarea
+  >
+  <label>Qualifications / Requirements</label>
+  <textarea rows="8" cols="70" type="string" name="qualifications">
+<%= job.qualifications %></textarea
+  >
+  <label>Company Description</label>
+  <textarea rows="8" cols="70" type="string" name="companyDescription">
+<%= job.companyDescription %></textarea
+  >
+  <br />
+  <input type="submit" value="Save Changes" />
+</form>
+
+<form method="POST" action="/jobs/<%=job._id %>/events">
+  <h2>Add/Delete Events</h2>
+  <label>Type of Event</label>
+  <select name="typeOfEvent">
+    <option disabled selected value>-- select one --</option>
+    <option value="Wishlist">Wishlist</option>
+    <option value="Application in Progress">Application in Progress</option>
+    <option value="Application Submitted">Application Submitted</option>
+    <option value="Meeting">Meeting</option>
+    <option value="First Round Interview">First Round Interview</option>
+    <option value="Second Round Interview">Second Round Interview</option>
+    <option value="Third Round Interview">Third Round Interview</option>
+    <option value="Final Round Interview">Final Round Interview</option>
+    <option value="Technical Interview">Technical Interview</option>
+    <option value="Assessment">Assessment</option>
+    <option value="Offer">Offer</option>
+    <option value="Application Rejected">Application Rejected</option></select
+  ><br />
+  <br />
+  <label>Date </label>
+  <input type="datetime-local" name="date" />
+  <input type="submit" value="Add Event" />
+  <table>
+    <tr>
+      <th class="center">Date</th>
+      <th class="center">Event</th>
+      <th class="center">Delete</th>
+    </tr>
+    <% job.events.forEach(function(e) { %>
+    <tr>
+      <td><%= e.date.toLocaleString() %></td>
+      <td><%= e.typeOfEvent %></td>
+      <td>
+        <input
+          form="delete-event"
+          value="X"
+          type="submit"
+          id="delete-event-btn"
+          onclick="return confirm('Are you sure?')"
+        />
+      </td>
+    </tr>
+    <% }); %>
+  </table>
+</form>
+
+<form method="POST" action="/jobs/<%=job._id %>/contacts">
+  <h2>Add/Delete Contacts</h2>
+
+  <ul>
+    <% job.contacts.forEach(function(c) { %>
+    <li><b><%= c.name ? c.name : 'None' %></b></li>
+    <li><%= c.position %></li>
+    <li><%= c.email %></li>
+    <li><%= c.phone %></li>
+    <li><%= c.location %></li>
+    <li>
+      <a href="<%= c.website %>" target="_blank">view website</a>
+    </li>
+    <br />
+    <% }); %>
+    <br />
+  </ul>
+
+  <label>Name <input type="string" name="name" placeholder="John Doe" /> </label
+  ><br />
+  <label
+    >Position
+    <input
+      type="string"
+      name="position"
+      placeholder="Sr. Staff Software Engineering Manager"
+    /> </label
+  ><br />
+  <label
+    >Phone
+    <input type="string" name="phone" placeholder="000-000-0000" />
+  </label>
+
+  <br />
+
+  <label
+    >Email
+    <input type="string" name="email" placeholder="jdoe@google.com" /> </label
+  ><br />
+  <label
+    >Website
+    <input
+      type="string"
+      name="website"
+      placeholder="https://www.google.com/"
+    /> </label
+  ><br />
+  <label
+    >Location
+    <input type="string" name="location" placeholder="Mountain View, CA, USA" />
+  </label>
+
+  <input type="submit" value="Add Contact" />
+</form>
+<%- include('../partials/footer') %>

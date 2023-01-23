@@ -9,8 +9,8 @@ function create(req, res) {
     job.contacts.push(req.body);
     job.save(function (err) {
       if (err) console.log(err);
-      if (err) return res.redirect(`/jobs/${req.params.id}`);
-      res.redirect(`/jobs/${job._id}`);
+      if (err) return res.redirect(`/jobs/${req.params.id}/edit`);
+      res.redirect(`/jobs/${job._id}/edit`);
     });
   });
 }

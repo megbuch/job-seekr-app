@@ -5,6 +5,7 @@ module.exports = {
   new: newJob,
   create,
   show,
+  edit,
 };
 
 function index(req, res) {
@@ -30,5 +31,11 @@ function create(req, res) {
 function show(req, res) {
   Job.findOne({ _id: req.params.id }, function (err, job) {
     res.render("jobs/show", { job });
+  });
+}
+
+function edit(req, res) {
+  Job.findOne({ _id: req.params.id }, function (err, job) {
+    res.render("jobs/edit", { job });
   });
 }

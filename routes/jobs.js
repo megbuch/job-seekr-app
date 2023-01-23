@@ -15,4 +15,7 @@ router.post("/", ensureAuth, jobsCtrl.create);
 // GET /jobs/:id
 router.get("/:id", ensureAuth, jobsCtrl.show);
 
+//GET /jobs/:id/edit
+router.get("/:id/edit", ensureAuth, jobsCtrl.edit);
+
 module.exports = router;
