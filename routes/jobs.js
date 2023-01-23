@@ -12,4 +12,7 @@ router.get("/new", ensureAuth, jobsCtrl.new);
 // POST /jobs
 router.post("/", ensureAuth, jobsCtrl.create);
 
+// GET /jobs/:id
+router.get("/:id", ensureAuth, jobsCtrl.show);
+
 module.exports = router;
