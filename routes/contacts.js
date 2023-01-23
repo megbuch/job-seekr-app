@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const eventsCtrl = require("../controllers/events");
+const contactsCtrl = require("../controllers/contacts");
 const ensureAuth = require("../config/ensureAuth");
 
 // POST /jobs/events
-router.post("/:id/events", ensureAuth, eventsCtrl.create);
+router.post("/:id/contacts", ensureAuth, contactsCtrl.create);
 
 module.exports = router;
