@@ -11,3 +11,52 @@ h1,
 h2 {
   font-family: "Ubuntu";
 }
+
+.ctr {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 60%;
+}
+
+table a {
+  color: #000;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 20px;
+}
+
+td {
+  margin: 10px;
+  padding: 10px;
+  line-height: 28px;
+  text-align: center;
+}
+
+tr:not(:first-child):nth-child(odd) {
+  background-color: rgb(216, 216, 216);
+}
+
+tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+#all-jobs tr:first-child {
+  background-color: none;
+}
+
+#all-jobs tr:not(:first-child):hover {
+  background-color: #e4e4e4;
+  cursor: pointer;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  letter-spacing: 2px;
+}

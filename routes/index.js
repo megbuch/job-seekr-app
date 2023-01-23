@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const ensureAuth = require("../config/ensureAuth");
 
-/* GET home page. */
+// GET landing page/home page
 router.get("/", function (req, res, next) {
   res.render("index");
 });
 
+// Authentication
 router.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -18,14 +20,21 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/jobs",
-    failureRedirect: "/jobs",
+    successRedirect: "/dashboard",
+    failureRedirect: "/",
   })
 );
 
 router.get("/logout", function (req, res) {
   req.logout(function () {
-    res.redirect("/jobs");
+    res.redirect("/");
+  });
+});
+
+// GET /dashboard
+router.get("/dashboard", ensureAuth, function (req, res) {
+  res.render("dashboard", {
+    name: req.user.firstName,
   });
 });
 

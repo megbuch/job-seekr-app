@@ -1,0 +1,79 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="ctr">
+  <h1>Create New Job</h1>
+  <h4>
+    This form is short and sweet — I know you're busy!<br />
+    Be sure to use the Job Editor to complete your job profile.<br />
+    You can add events and contacts via the Job Editor. 👌
+  </h4>
+  <form action="/jobs" method="POST">
+    <label
+      >Company Name *
+      <input type="string" name="companyName" placeholder="Google" /> </label
+    ><br />
+    <label
+      >Position *
+      <input type="string" name="job" placeholder="Software Engineer" /> </label
+    ><br />
+    <label
+      >Industry
+      <input type="string" name="industry" placeholder="Technology" /> </label
+    ><br />
+    <label
+      >Work Style<br />
+      <select name="workStyle">
+        <option disabled selected value>-- select one --</option>
+        <option value="In-Person">In-Person</option>
+        <option value="Hybrid">Hybrid</option>
+        <option value="Remote">Remote</option></select
+      ><br />
+    </label>
+    <br />
+    <label
+      >Company Description
+      <textarea
+        rows="7"
+        cols="70"
+        type="string"
+        name="companyDescription"
+        placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
+      ></textarea>
+    </label>
+    <br />
+    <label
+      >URL of Job Listing
+      <input
+        type="string"
+        name="jobListingUrl"
+        placeholder="https://www.google.com/careers/8373661"
+      /> </label
+    ><br />
+    <br />
+
+    <label
+      >Job Description
+      <textarea
+        rows="10"
+        cols="70"
+        type="string"
+        name="jobDescription"
+        placeholder="With your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy..."
+      ></textarea>
+    </label>
+    <label
+      >Qualifications / Requirements
+      <textarea
+        rows="10"
+        cols="70"
+        type="string"
+        name="qualifications"
+        placeholder="Bachelor's degree or equivalent practical experience, 8 years of experience in software development, and with data structures..."
+      ></textarea>
+    </label>
+    <br />
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

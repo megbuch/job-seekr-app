@@ -14,7 +14,9 @@ passport.use(
         let user = await User.findOne({ googleId: profile.id });
         if (user) return cb(null, user);
         user = await User.create({
-          name: profile.displayName,
+          displayName: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
           googleId: profile.id,
           email: profile.emails[0].value,
           avatar: profile.photos[0].value,

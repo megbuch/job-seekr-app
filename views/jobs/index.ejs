@@ -1,4 +1,22 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Testing</h1>
+<div class="ctr">
+  <h1>All Jobs</h1>
+  <table id="all-jobs">
+    <tr>
+      <th>Company</th>
+      <th>Position</th>
+      <th>Status</th>
+      <th>Interview</th>
+      <th>Applied</th>
+    </tr>
+    <% jobs.forEach(function(j) { %>
+    <tr onclick="window.location='/jobs/<%= j.id %>'">
+      <td><%= j.companyName %></td>
+      <td><%= j.job %></td>
+      <% }) %>
+    </tr>
+  </table>
+</div>
+
 <%- include('../partials/footer.ejs') %>
