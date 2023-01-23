@@ -66,7 +66,6 @@ const jobSchema = new Schema(
     qualifications: String,
     location: String,
     companyDescription: String,
-    companyWebsite: String,
     contacts: [contactSchema],
     events: [eventSchema],
     user: {

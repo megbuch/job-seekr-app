@@ -21,7 +21,15 @@
       <input type="string" name="industry" placeholder="Technology" /> </label
     ><br />
     <label
-      >Work Style<br />
+      >Location
+      <input
+        type="string"
+        name="location"
+        placeholder="Mountain View, CA"
+      /> </label
+    ><br />
+    <label
+      >Work Style
       <select name="workStyle">
         <option disabled selected value>-- select one --</option>
         <option value="In-Person">In-Person</option>
@@ -29,18 +37,6 @@
         <option value="Remote">Remote</option></select
       ><br />
     </label>
-    <br />
-    <label
-      >Company Description
-      <textarea
-        rows="7"
-        cols="70"
-        type="string"
-        name="companyDescription"
-        placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
-      ></textarea>
-    </label>
-    <br />
     <label
       >URL of Job Listing
       <input
@@ -49,8 +45,6 @@
         placeholder="https://www.google.com/careers/8373661"
       /> </label
     ><br />
-    <br />
-
     <label
       >Job Description
       <textarea
@@ -72,6 +66,16 @@
       ></textarea>
     </label>
     <br />
+    <label
+      >Company Description
+      <textarea
+        rows="7"
+        cols="70"
+        type="string"
+        name="companyDescription"
+        placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
+      ></textarea>
+    </label>
     <input type="submit" value="Submit" />
   </form>
 </div>

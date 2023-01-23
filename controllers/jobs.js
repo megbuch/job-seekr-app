@@ -28,7 +28,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Job.findOne({ _id: req.params.id }, function (err, jobs) {
-    res.render("jobs/show", { jobs });
+  Job.findOne({ _id: req.params.id }, function (err, job) {
+    res.render("jobs/show", { job });
   });
 }

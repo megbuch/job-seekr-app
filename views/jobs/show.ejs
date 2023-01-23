@@ -1,46 +1,46 @@
 <%- include('../partials/header') %>
 
-<h1><%= jobs.companyName %> <span><%= jobs.job %></span></h1>
+<h1><%= job.companyName %> <span><%= job.job %></span></h1>
 
 <a href="/jobs/"> go back 👈🏼</a>
-<a href="/jobs/<%= jobs.id %>/edit">Edit Job Profile ✍🏼</a>
+<a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
 
 <table id="details-tbl">
   <tr>
     <th>Company</th>
-    <td><%= jobs.companyName %></td>
+    <td><%= job.companyName %></td>
     <th>Industry</th>
-    <td><%= jobs.industry %></td>
+    <td><%= job.industry %></td>
   </tr>
   <tr>
     <th>Position</th>
-    <td><%= jobs.job %></td>
+    <td><%= job.job %></td>
     <th>Work Style</th>
-    <td><%= jobs.workStyle %></td>
+    <td><%= job.workStyle %></td>
   </tr>
   <tr>
     <th>Job Listing</th>
     <td>
-      <a href="<%= jobs.jobListingUrl %>" target="_blank">Click here</a>
+      <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
     </td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <th>Job Description</th>
-    <td colspan="3"><%= jobs.jobDescription %></td>
+    <td colspan="3"><%= job.jobDescription %></td>
   </tr>
   <tr>
     <th>Qualifications</th>
-    <td colspan="3"><%= jobs.qualifications %></td>
+    <td colspan="3"><%= job.qualifications %></td>
   </tr>
   <tr>
     <th>Company Description</th>
-    <td colspan="3"><%= jobs.companyDescription %></td>
+    <td colspan="3"><%= job.companyDescription %></td>
   </tr>
 </table>
 
-<form method="POST" action="/jobs/<%=jobs._id %>/events">
+<form method="POST" action="/jobs/<%=job._id %>/events">
   <h2>Event Log</h2>
   <table>
     <tr>
@@ -48,7 +48,7 @@
       <th class="center">Event</th>
       <th class="center">Delete</th>
     </tr>
-    <% jobs.events.forEach(function(e) { %>
+    <% job.events.forEach(function(e) { %>
     <tr>
       <td><%= e.date.toLocaleString() %></td>
       <td><%= e.typeOfEvent %></td>
@@ -91,11 +91,11 @@
   <input type="submit" value="Add Event" />
 </form>
 
-<form method="POST" action="/jobs/<%=jobs._id %>/contacts">
+<form method="POST" action="/jobs/<%=job._id %>/contacts">
   <h2>Contacts</h2>
 
   <ul>
-    <% jobs.contacts.forEach(function(c) { %>
+    <% job.contacts.forEach(function(c) { %>
     <li><b><%= c.name ? c.name : 'None' %></b></li>
     <li><%= c.position %></li>
     <li><%= c.email %></li>

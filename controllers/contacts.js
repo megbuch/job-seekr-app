@@ -10,7 +10,6 @@ function create(req, res) {
     job.save(function (err) {
       if (err) console.log(err);
       if (err) return res.redirect(`/jobs/${req.params.id}`);
-      console.log(job);
       res.redirect(`/jobs/${job._id}`);
     });
   });

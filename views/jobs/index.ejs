@@ -6,14 +6,19 @@
     <tr>
       <th>Company</th>
       <th>Position</th>
-      <th>Status</th>
-      <th>Interview</th>
-      <th>Applied</th>
+      <th>Location</th>
+      <th>Status / Date</th>
     </tr>
     <% jobs.forEach(function(j) { %>
     <tr onclick="window.location='/jobs/<%= j.id %>'">
       <td><%= j.companyName %></td>
       <td><%= j.job %></td>
+      <td><%= j.location %></td>
+      <td>
+        <%= j.events[0] ? j.events[j.events.length-1].typeOfEvent : '-' %>
+        <br /><%= j.events[0] ?
+        j.events[j.events.length-1].date.toLocaleString() : '-'%>
+      </td>
       <% }) %>
     </tr>
   </table>
