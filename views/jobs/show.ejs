@@ -62,12 +62,9 @@
         />
       </td>
     </tr>
-
     <% }); %>
   </table>
-
   <br />
-
   <label
     >Type of Event
     <select name="typeOfEvent">
@@ -86,16 +83,14 @@
       <option value="Application Rejected">Application Rejected</option></select
     ><br />
   </label>
-
   <br />
-
   <label
     >Date
     <input type="datetime-local" name="date" />
   </label>
-
   <input type="submit" value="Add Event" />
 </form>
+
 <form method="POST" action="/jobs/<%=jobs._id %>/contacts">
   <h2>Contacts</h2>
 

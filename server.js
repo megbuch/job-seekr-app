@@ -13,6 +13,7 @@ require("./config/passport");
 
 const indexRouter = require("./routes/index");
 const jobsRouter = require("./routes/jobs");
+const eventsRouter = require("./routes/events");
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/jobs", jobsRouter);
+app.use("/jobs", eventsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
