@@ -7,6 +7,7 @@ module.exports = {
   show,
   edit,
   update,
+  delete: deleteJob,
 };
 
 function index(req, res) {
@@ -54,4 +55,14 @@ function update(req, res) {
       }
     }
   );
+}
+
+function deleteJob(req, res) {
+  Job.deleteOne({ _id: req.params.id }, function (err, job) {
+    if (!err) {
+      res.redirect("/jobs");
+    } else {
+      console.log("Error : " + err);
+    }
+  });
 }

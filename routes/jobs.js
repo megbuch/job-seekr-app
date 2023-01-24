@@ -19,6 +19,9 @@ router.get("/:id", ensureAuth, jobsCtrl.show);
 router.get("/:id/edit", ensureAuth, jobsCtrl.edit);
 
 //PUT /:id
-router.put("/:id", jobsCtrl.update);
+router.put("/:id", ensureAuth, jobsCtrl.update);
+
+//DELETE /:id
+router.delete("/:id", ensureAuth, jobsCtrl.delete);
 
 module.exports = router;
