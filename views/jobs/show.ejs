@@ -30,26 +30,32 @@
   <tr>
     <th>Position</th>
     <td><%= job.job %></td>
+    <th>Category</th>
+    <td><%= job.jobCategory %></td>
+  </tr>
+  <tr>
+    <th>Location</th>
+    <td><%= job.location %></td>
     <th>Work Style</th>
     <td><%= job.workStyle %></td>
   </tr>
   <tr>
     <th>Job Listing</th>
-    <td colspan="3">
+    <td>
       <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
     </td>
   </tr>
   <tr>
     <th>Job Description</th>
-    <td colspan="3"><%= job.jobDescription %></td>
+    <td colspan="4"><%= job.jobDescription %></td>
   </tr>
   <tr>
     <th>Qualifications</th>
-    <td colspan="3"><%= job.qualifications %></td>
+    <td colspan="4"><%= job.qualifications %></td>
   </tr>
   <tr>
     <th>Company Description</th>
-    <td colspan="3"><%= job.companyDescription %></td>
+    <td colspan="4"><%= job.companyDescription %></td>
   </tr>
 </table>
 

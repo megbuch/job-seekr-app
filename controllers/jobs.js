@@ -10,30 +10,44 @@ module.exports = {
   delete: deleteJob,
 };
 
-function index(req, res) {
-  Job.find({}, function (err, jobs) {
+async function index(req, res) {
+  try {
+    const jobs = await Job.find({ user: req.user.id }).lean();
     res.render("jobs/index", { jobs, name: req.user.firstName });
-  });
+  } catch (err) {
+    console.error(err);
+    res.render("error");
+  }
 }
 
 function newJob(req, res) {
   res.render("jobs/new");
 }
 
-function create(req, res) {
-  const job = new Job(req.body);
-  job.save(function (err) {
-    if (err) console.log(err);
-    if (err) return res.redirect("/jobs/new");
-    console.log(job);
+async function create(req, res) {
+  try {
+    req.body.user = req.user.id;
+    await Job.create(req.body);
     res.redirect("/jobs");
-  });
+  } catch (err) {
+    console.error(err);
+    res.render("error");
+  }
 }
 
-function show(req, res) {
-  Job.findOne({ _id: req.params.id }, function (err, job) {
+async function show(req, res) {
+  try {
+    let job = await Job.findById(req.params.id).populate("user");
+
+    if (!job) {
+      return res.render("error");
+    }
+
     res.render("jobs/show", { job });
-  });
+  } catch (err) {
+    console.error(err);
+    res.render("error");
+  }
 }
 
 function edit(req, res) {

@@ -59,6 +59,7 @@ const jobSchema = new Schema(
       type: String,
       required: true,
     },
+    jobCategory: String,
     jobListingUrl: String,
     industry: String,
     workStyle: String,
