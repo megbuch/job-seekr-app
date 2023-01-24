@@ -5,20 +5,6 @@
 <a href="/jobs/"> go back 👈🏼</a>
 <a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
 <a id="print" href="#">Print PDF 🖨️</a>
-<input
-  form="delete-job"
-  value="Delete Job"
-  type="submit"
-  id="delete-btn"
-  onclick="return confirm('Are you sure?')"
-/>
-
-<form
-  id="delete-job"
-  action="/jobs/<%= job.id %>?_method=DELETE"
-  class="hidden"
-  method="POST"
-></form>
 
 <table id="details-tbl">
   <tr>

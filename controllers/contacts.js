@@ -2,6 +2,7 @@ const Job = require("../models/job");
 
 module.exports = {
   create,
+  // delete: deleteContact,
 };
 
 function create(req, res) {
@@ -14,3 +15,15 @@ function create(req, res) {
     });
   });
 }
+
+// async function deleteContact(req, res, next) {
+//   try {
+//     const job = await Job.findOne({ "contacts._id": req.params.id });
+//     if (!job) return res.redirect("/jobs");
+//     job.contacts.remove(req.params.id);
+//     await job.save();
+//     res.redirect(`/jobs/${job._id}`);
+//   } catch (err) {
+//     return next(err);
+//   }
+// }

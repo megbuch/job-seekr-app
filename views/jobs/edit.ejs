@@ -1,8 +1,22 @@
 <%- include('../partials/header') %>
 
+<form
+id="delete-job"
+action="/jobs/<%= job.id %>?_method=DELETE"
+class="hidden"
+method="POST"
+></form>
+
+
 <h1>Job Editor</h1>
 <a href="/jobs/<%= job.id %>"> go back 👈🏼</a>
-<form action="/jobs/<%= job.id %>?_method=PUT" method="POST" autocomplete="off">
+<input
+  form="delete-job"
+  value="Delete Job"
+  type="submit"
+  onclick="return confirm('Are you sure?')"
+/>
+
   <label>Company Name *</label>
   <input
     type="string"
@@ -45,7 +59,7 @@
   <input type="submit" value="Save Changes" />
 </form>
 
-<form method="POST" action="/jobs/<%=job._id %>/events">
+
   <h2>Add/Delete Events</h2>
   <label>Type of Event</label>
   <select name="typeOfEvent">
@@ -66,7 +80,9 @@
   <br />
   <label>Date </label>
   <input type="datetime-local" name="date" />
-  <input type="submit" value="Add Event" />
+  <form method="POST" action="/jobs/<%=job._id %>/events">
+    <input type="submit" value="Add Event" />
+  </form>
   <table>
     <tr>
       <th class="center">Date</th>
@@ -78,22 +94,18 @@
       <td><%= e.date.toLocaleString() %></td>
       <td><%= e.typeOfEvent %></td>
       <td>
-        <input
-          form="delete-event"
-          value="X"
+        <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
+          <input
           type="submit"
-          id="delete-event-btn"
-          onclick="return confirm('Are you sure?')"
-        />
+          onclick="return confirm('Are you sure?')" value="x">
+        </form>
       </td>
     </tr>
     <% }); %>
   </table>
-</form>
 
-<form method="POST" action="/jobs/<%=job._id %>/contacts">
+
   <h2>Add/Delete Contacts</h2>
-
   <ul>
     <% job.contacts.forEach(function(c) { %>
     <li><b><%= c.name ? c.name : 'None' %></b></li>
@@ -103,6 +115,13 @@
     <li><%= c.location %></li>
     <li>
       <a href="<%= c.website %>" target="_blank">view website</a>
+    </li>
+    <li>
+      <form action="/contacts/<%= c._id %>?_method=DELETE" method="POST">
+        <input
+        type="submit"
+        onclick="return confirm('Are you sure?')" value ='x'>
+      </form>
     </li>
     <br />
     <% }); %>
@@ -143,6 +162,7 @@
     <input type="string" name="location" placeholder="Mountain View, CA, USA" />
   </label>
 
+<form method="POST" action="/jobs/<%=job._id %>/contacts">
   <input type="submit" value="Add Contact" />
 </form>
 <%- include('../partials/footer') %>

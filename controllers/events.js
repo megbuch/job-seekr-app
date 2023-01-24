@@ -2,10 +2,11 @@ const Job = require("../models/job");
 
 module.exports = {
   create,
+  delete: deleteEvent,
 };
 
 function create(req, res) {
-  Job.findOne({ _id: req.params.id }, function (err, job) {
+  Job.findById(req.params.id, function (err, job) {
     job.events.push(req.body);
     job.save(function (err) {
       if (err) console.log(err);
@@ -13,4 +14,17 @@ function create(req, res) {
       res.redirect(`/jobs/${job._id}/edit`);
     });
   });
+}
+
+async function deleteEvent(req, res, next) {
+  try {
+    const job = await Job.findOne({ "events._id": req.params.id });
+    if (!job) return res.redirect("/jobs");
+    job.events.remove(req.params.id);
+    console.log(job);
+    await job.save();
+    res.redirect(`/jobs/${job._id}`);
+  } catch (err) {
+    return next(err);
+  }
 }
