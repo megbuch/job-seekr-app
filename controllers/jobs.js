@@ -6,6 +6,7 @@ module.exports = {
   create,
   show,
   edit,
+  update,
 };
 
 function index(req, res) {
@@ -38,4 +39,19 @@ function edit(req, res) {
   Job.findOne({ _id: req.params.id }, function (err, job) {
     res.render("jobs/edit", { job });
   });
+}
+
+function update(req, res) {
+  Job.findOneAndUpdate(
+    { _id: req.params.id }, //conditions, update, options, callback fn
+    req.body,
+    { new: true },
+    function (err, job) {
+      if (!err) {
+        res.redirect(`/jobs/${req.params.id}`);
+      } else {
+        console.log("Error while updating record : " + err);
+      }
+    }
+  );
 }
