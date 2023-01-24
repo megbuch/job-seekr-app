@@ -48,7 +48,11 @@ function show(req, res) {
 
 function edit(req, res) {
   Job.findById(req.params.id, function (err, job) {
-    res.render("jobs/edit", { job });
+    if (job.user.equals(req.user._id)) {
+      res.render("jobs/edit", { job });
+    } else {
+      res.redirect("/jobs");
+    }
   });
 }
 
