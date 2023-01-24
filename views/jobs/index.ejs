@@ -2,6 +2,13 @@
 
 <div class="ctr">
   <h1>All Jobs</h1>
+  <h2>
+    Welcome, <%= name %>! <% if (jobs.length > 0) { %>
+    <span>You are watching <%= jobs.length %> jobs!</span>
+    <% } %>
+  </h2>
+
+  <% if(jobs.length > 0) { jobs.forEach(function(j) { %>
   <table id="all-jobs">
     <tr>
       <th>Company</th>
@@ -9,7 +16,6 @@
       <th>Location</th>
       <th>Upcoming Event</th>
     </tr>
-    <% jobs.forEach(function(j) { %>
     <tr onclick="window.location='/jobs/<%= j.id %>'">
       <td><%= j.companyName %></td>
       <td><%= j.job %></td>
@@ -19,9 +25,12 @@
         <br /><%= j.events[0] ?
         j.events[j.events.length-1].date.toLocaleString() : '-'%>
       </td>
-      <% }) %>
     </tr>
   </table>
+  <% })} else { %>
+  <h2>Okay... Let's start by adding your first job profile!</h2>
+  <a href="/jobs/new">Create new job!</a>
+  <% } %>
 </div>
 
 <%- include('../partials/footer.ejs') %>

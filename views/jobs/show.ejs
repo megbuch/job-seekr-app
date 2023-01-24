@@ -35,11 +35,9 @@
   </tr>
   <tr>
     <th>Job Listing</th>
-    <td>
+    <td colspan="3">
       <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
     </td>
-    <td></td>
-    <td></td>
   </tr>
   <tr>
     <th>Job Description</th>
@@ -56,6 +54,7 @@
 </table>
 
 <h2>Event Log</h2>
+<% if (job.events.length > 0) { %>
 <table>
   <tr>
     <th>Date</th>
@@ -68,9 +67,12 @@
   </tr>
   <% }); %>
 </table>
+<% } else { %>
+<p>No events yet!</p>
+<% } %>
 
 <h2>Contacts</h2>
-
+<% if (job.contacts.length > 0) { %>
 <ul>
   <% job.contacts.forEach(function(c) { %>
   <li><b><%= c.name ? c.name : 'None' %></b></li>
@@ -85,5 +87,6 @@
   <% }); %>
   <br />
 </ul>
-
-<%- include('../partials/footer') %>
+<% } else { %>
+<p>No contacts yet!</p>
+<% } %> <%- include('../partials/footer') %>

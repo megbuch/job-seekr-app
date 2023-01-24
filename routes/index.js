@@ -20,7 +20,7 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/dashboard",
+    successRedirect: "/jobs",
     failureRedirect: "/",
   })
 );
@@ -28,13 +28,6 @@ router.get(
 router.get("/logout", function (req, res) {
   req.logout(function () {
     res.redirect("/");
-  });
-});
-
-// GET /dashboard
-router.get("/dashboard", ensureAuth, function (req, res) {
-  res.render("dashboard", {
-    name: req.user.firstName,
   });
 });
 
