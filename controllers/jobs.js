@@ -1,3 +1,4 @@
+const job = require("../models/job");
 const Job = require("../models/job");
 
 module.exports = {
@@ -35,23 +36,18 @@ async function create(req, res) {
   }
 }
 
-async function show(req, res) {
-  try {
-    let job = await Job.findById(req.params.id).populate("user");
-
-    if (!job) {
-      return res.render("error");
+function show(req, res) {
+  Job.findById(req.params.id, function (err, job) {
+    if (job.user.equals(req.user._id)) {
+      res.render("jobs/show", { job });
+    } else {
+      res.redirect("/jobs");
     }
-
-    res.render("jobs/show", { job });
-  } catch (err) {
-    console.error(err);
-    res.render("error");
-  }
+  });
 }
 
 function edit(req, res) {
-  Job.findOne({ _id: req.params.id }, function (err, job) {
+  Job.findById(req.params.id, function (err, job) {
     res.render("jobs/edit", { job });
   });
 }
