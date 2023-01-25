@@ -3,12 +3,12 @@ const router = express.Router();
 const passport = require("passport");
 const ensureAuth = require("../config/ensureAuth");
 
-// GET landing page/home page
+//GET landing page/home page
 router.get("/", function (req, res, next) {
   res.render("index");
 });
 
-// Authentication
+//Authentication
 router.get(
   "/auth/google",
   passport.authenticate("google", {

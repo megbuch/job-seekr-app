@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 
 const contactSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
+    name: String,
     position: String,
     email: String,
     phone: String,
@@ -37,12 +34,8 @@ const eventSchema = new Schema(
         "Offer",
         "Application Rejected",
       ],
-      required: true,
     },
-    date: {
-      type: Date,
-      required: true,
-    },
+    date: Date,
   },
   {
     timestamps: true,

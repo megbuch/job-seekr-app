@@ -1,4 +1,3 @@
-const job = require("../models/job");
 const Job = require("../models/job");
 
 module.exports = {
@@ -16,7 +15,7 @@ async function index(req, res) {
     const jobs = await Job.find({ user: req.user.id }).lean();
     res.render("jobs/index", { jobs, name: req.user.firstName });
   } catch (err) {
-    console.error(err);
+    console.error("Error : " + err);
     res.render("error");
   }
 }
@@ -31,7 +30,7 @@ async function create(req, res) {
     await Job.create(req.body);
     res.redirect("/jobs");
   } catch (err) {
-    console.error(err);
+    console.error("Error : " + err);
     res.render("error");
   }
 }
@@ -65,7 +64,8 @@ function update(req, res) {
       if (!err) {
         res.redirect(`/jobs/${req.params.id}`);
       } else {
-        console.log("Error while updating record : " + err);
+        console.error("Error : " + err);
+        res.render("error");
       }
     }
   );
@@ -76,7 +76,8 @@ function deleteJob(req, res) {
     if (!err) {
       res.redirect("/jobs");
     } else {
-      console.log("Error : " + err);
+      console.error("Error : " + err);
+      res.render("error");
     }
   });
 }

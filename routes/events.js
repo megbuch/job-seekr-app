@@ -3,10 +3,10 @@ const router = express.Router();
 const eventsCtrl = require("../controllers/events");
 const ensureAuth = require("../config/ensureAuth");
 
-// POST /jobs/events
-router.post("/:id/events", ensureAuth, eventsCtrl.create);
+//POST /jobs/:id/events
+router.post("/jobs/:id/events", ensureAuth, eventsCtrl.create);
 
-// DELETE /jobs/events
+//DELETE /events/:id
 router.delete("/events/:id", ensureAuth, eventsCtrl.delete);
 
 module.exports = router;

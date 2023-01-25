@@ -1,12 +1,11 @@
 <%- include('../partials/header') %>
 
 <form
-id="delete-job"
-action="/jobs/<%= job.id %>?_method=DELETE"
-class="hidden"
-method="POST"
+  id="delete-job"
+  action="/jobs/<%= job.id %>?_method=DELETE"
+  class="hidden"
+  method="POST"
 ></form>
-
 
 <h1>Job Editor</h1>
 <a href="/jobs/<%= job.id %>"> go back 👈🏼</a>
@@ -16,7 +15,7 @@ method="POST"
   type="submit"
   onclick="return confirm('Are you sure?')"
 />
-
+<form method="POST" action="/jobs/<%=job._id %>?_method=PUT" autocomplete="off">
   <label>Company Name *</label>
   <input
     type="string"
@@ -59,7 +58,7 @@ method="POST"
   <input type="submit" value="Save Changes" />
 </form>
 
-
+<form method="POST" action="/jobs/<%=job._id %>/events" autocomplete="off">
   <h2>Add/Delete Events</h2>
   <label>Type of Event</label>
   <select name="typeOfEvent">
@@ -80,54 +79,57 @@ method="POST"
   <br />
   <label>Date </label>
   <input type="datetime-local" name="date" />
-  <form method="POST" action="/jobs/<%=job._id %>/events">
-    <input type="submit" value="Add Event" />
-  </form>
-  <table>
-    <tr>
-      <th class="center">Date</th>
-      <th class="center">Event</th>
-      <th class="center">Delete</th>
-    </tr>
-    <% job.events.forEach(function(e) { %>
-    <tr>
-      <td><%= e.date.toLocaleString() %></td>
-      <td><%= e.typeOfEvent %></td>
-      <td>
-        <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
-          <input
-          type="submit"
-          onclick="return confirm('Are you sure?')" value="x">
-        </form>
-      </td>
-    </tr>
-    <% }); %>
-  </table>
+  <input type="submit" value="Add Event" />
+</form>
 
-
-  <h2>Add/Delete Contacts</h2>
-  <ul>
-    <% job.contacts.forEach(function(c) { %>
-    <li><b><%= c.name ? c.name : 'None' %></b></li>
-    <li><%= c.position %></li>
-    <li><%= c.email %></li>
-    <li><%= c.phone %></li>
-    <li><%= c.location %></li>
-    <li>
-      <a href="<%= c.website %>" target="_blank">view website</a>
-    </li>
-    <li>
-      <form action="/contacts/<%= c._id %>?_method=DELETE" method="POST">
+<table>
+  <tr>
+    <th class="center">Date</th>
+    <th class="center">Event</th>
+    <th class="center">Delete</th>
+  </tr>
+  <% job.events.forEach(function(e) { %>
+  <tr>
+    <td><%= e.date.toLocaleString() %></td>
+    <td><%= e.typeOfEvent %></td>
+    <td>
+      <form action="/events/<%= e._id %>?_method=DELETE" method="POST">
         <input
-        type="submit"
-        onclick="return confirm('Are you sure?')" value ='x'>
+          type="submit"
+          onclick="return confirm('Are you sure?')"
+          value="x"
+        />
       </form>
-    </li>
-    <br />
-    <% }); %>
-    <br />
-  </ul>
+    </td>
+  </tr>
+  <% }); %>
+</table>
 
+<h2>Add/Delete Contacts</h2>
+<ul>
+  <% job.contacts.forEach(function(c) { %>
+  <li><b><%= c.name ? c.name : 'None' %></b></li>
+  <li><%= c.position %></li>
+  <li><%= c.email %></li>
+  <li><%= c.phone %></li>
+  <li><%= c.location %></li>
+  <li>
+    <a href="<%= c.website %>" target="_blank">view website</a>
+  </li>
+  <li>
+    <form action="/contacts/<%= c._id %>?_method=DELETE" method="POST">
+      <input
+        type="submit"
+        onclick="return confirm('Are you sure?')"
+        value="x"
+      />
+    </form>
+  </li>
+  <br />
+  <% }); %>
+</ul>
+
+<form method="POST" action="/jobs/<%=job._id %>/contacts" autocomplete="off">
   <label>Name <input type="string" name="name" placeholder="John Doe" /> </label
   ><br />
   <label
@@ -161,8 +163,6 @@ method="POST"
     >Location
     <input type="string" name="location" placeholder="Mountain View, CA, USA" />
   </label>
-
-<form method="POST" action="/jobs/<%=job._id %>/contacts">
   <input type="submit" value="Add Contact" />
 </form>
 <%- include('../partials/footer') %>

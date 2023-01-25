@@ -21,9 +21,8 @@ async function deleteEvent(req, res, next) {
     const job = await Job.findOne({ "events._id": req.params.id });
     if (!job) return res.redirect("/jobs");
     job.events.remove(req.params.id);
-    console.log(job);
     await job.save();
-    res.redirect(`/jobs/${job._id}`);
+    res.redirect(`/jobs/${job._id}/edit`);
   } catch (err) {
     return next(err);
   }

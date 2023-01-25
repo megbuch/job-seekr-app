@@ -18,10 +18,10 @@ router.get("/:id", ensureAuth, jobsCtrl.show);
 //GET /jobs/:id/edit
 router.get("/:id/edit", ensureAuth, jobsCtrl.edit);
 
-//PUT /:id
+//PUT /jobs/:id
 router.put("/:id", ensureAuth, jobsCtrl.update);
 
-//DELETE /:id
+//DELETE /jobs/:id
 router.delete("/:id", ensureAuth, jobsCtrl.delete);
 
 module.exports = router;
