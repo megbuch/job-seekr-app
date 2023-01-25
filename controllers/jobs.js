@@ -57,7 +57,7 @@ function edit(req, res) {
 
 function update(req, res) {
   Job.findOneAndUpdate(
-    { _id: req.params.id }, //conditions, update, options, callback fn
+    { _id: req.params.id },
     req.body,
     { new: true },
     function (err, job) {

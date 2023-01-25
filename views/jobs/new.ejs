@@ -7,78 +7,56 @@
     Be sure to use the Job Editor to add events and contacts. 👌<br />
   </h4>
   <form action="/jobs" method="POST">
-    <label
-      >Company Name *
-      <input type="string" name="companyName" placeholder="Google" /> </label
+    <label>Company Name *</label>
+    <input type="string" name="companyName" placeholder="Google" /><br />
+    <label>Position *</label>
+    <input type="string" name="job" placeholder="Software Engineer" /> <br />
+    <label>Category</label>
+    <input type="string" name="jobCategory" placeholder="Front-end" /><br />
+    <label>Industry</label>
+    <input type="string" name="industry" placeholder="Technology" />><br />
+    <label>Location</label>
+    <input type="string" name="location" placeholder="Mountain View, CA" />
     ><br />
-    <label
-      >Position *
-      <input type="string" name="job" placeholder="Software Engineer" /> </label
+    <label>Work Style</label>
+    <select name="workStyle">
+      <option disabled selected value>-- select one --</option>
+      <option value="In-Person">In-Person</option>
+      <option value="Hybrid">Hybrid</option>
+      <option value="Remote">Remote</option></select
     ><br />
-    <label
-      >Category
-      <input type="string" name="jobCategory" placeholder="Front-end" /> </label
+    <label>URL of Job Listing</label>
+    <input
+      type="string"
+      name="jobListingUrl"
+      placeholder="https://www.google.com/careers/8373661"
+    /><br />
+    <label>Job Description</label>
+    <textarea
+      rows="10"
+      cols="70"
+      type="string"
+      name="jobDescription"
+      placeholder="With your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy..."
+    ></textarea
     ><br />
-    <label
-      >Industry
-      <input type="string" name="industry" placeholder="Technology" /> </label
-    ><br />
-    <label
-      >Location
-      <input
-        type="string"
-        name="location"
-        placeholder="Mountain View, CA"
-      /> </label
-    ><br />
-    <label
-      >Work Style
-      <select name="workStyle">
-        <option disabled selected value>-- select one --</option>
-        <option value="In-Person">In-Person</option>
-        <option value="Hybrid">Hybrid</option>
-        <option value="Remote">Remote</option></select
-      ><br />
-    </label>
-    <label
-      >URL of Job Listing
-      <input
-        type="string"
-        name="jobListingUrl"
-        placeholder="https://www.google.com/careers/8373661"
-      /> </label
-    ><br />
-    <label
-      >Job Description
-      <textarea
-        rows="10"
-        cols="70"
-        type="string"
-        name="jobDescription"
-        placeholder="With your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy..."
-      ></textarea>
-    </label>
-    <label
-      >Qualifications / Requirements
-      <textarea
-        rows="10"
-        cols="70"
-        type="string"
-        name="qualifications"
-        placeholder="Bachelor's degree or equivalent practical experience, 8 years of experience in software development, and with data structures..."
-      ></textarea>
-    </label>
+    <label>Qualifications</label>
+    <textarea
+      rows="10"
+      cols="70"
+      type="string"
+      name="qualifications"
+      placeholder="Bachelor's degree or equivalent practical experience, 8 years of experience in software development, and with data structures..."
+    ></textarea>
     <br />
-    <label
-      >Company Description
-      <textarea
-        rows="7"
-        cols="70"
-        type="string"
-        name="companyDescription"
-        placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
-      ></textarea>
-    </label>
+    <label>Company Description</label>
+    <textarea
+      rows="7"
+      cols="70"
+      type="string"
+      name="companyDescription"
+      placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
+    ></textarea>
     <input type="submit" value="Submit" />
   </form>
 </div>
