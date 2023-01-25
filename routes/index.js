@@ -4,7 +4,7 @@ const passport = require("passport");
 
 //GET landing page/home page
 router.get("/", function (req, res, next) {
-  res.render("index");
+  res.render("index", { bodyClass: "body-landing" });
 });
 
 //Authentication

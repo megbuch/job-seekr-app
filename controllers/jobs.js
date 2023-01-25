@@ -13,7 +13,11 @@ module.exports = {
 async function index(req, res) {
   try {
     const jobs = await Job.find({ user: req.user.id }).lean();
-    res.render("jobs/index", { jobs, name: req.user.firstName });
+    res.render("jobs/index", {
+      jobs,
+      name: req.user.firstName,
+      bodyClass: "body-default",
+    });
   } catch (err) {
     console.error("Error : " + err);
     res.render("error");
@@ -38,7 +42,7 @@ async function create(req, res) {
 function show(req, res) {
   Job.findById(req.params.id, function (err, job) {
     if (job.user.equals(req.user._id)) {
-      res.render("jobs/show", { job });
+      res.render("jobs/show", { job, bodyClass: "body-default" });
     } else {
       res.redirect("/jobs");
     }
@@ -48,7 +52,7 @@ function show(req, res) {
 function edit(req, res) {
   Job.findById(req.params.id, function (err, job) {
     if (job.user.equals(req.user._id)) {
-      res.render("jobs/edit", { job });
+      res.render("jobs/edit", { job, bodyClass: "body-default" });
     } else {
       res.redirect("/jobs");
     }
