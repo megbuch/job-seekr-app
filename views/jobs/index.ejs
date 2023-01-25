@@ -2,13 +2,9 @@
 
 <div class="ctr">
   <h1>All Jobs</h1>
-  <h2>
-    Welcome, <%= name %>! <% if (jobs.length > 0) { %>
-    <span>You are watching <%= jobs.length %> jobs!</span>
-    <% } %>
-  </h2>
-
-  <% if(jobs.length > 0) {%>
+  <h2>Welcome, <span><%= name %></span>! <% if (jobs.length > 0) { %></h2>
+  <br />You are watching <%= jobs.length %> jobs! <% } %> <% if(jobs.length > 0)
+  {%>
   <table>
     <tr>
       <th>Company</th>

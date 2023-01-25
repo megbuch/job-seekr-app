@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const ensureAuth = require("../config/ensureAuth");
 
 //GET landing page/home page
 router.get("/", function (req, res, next) {
