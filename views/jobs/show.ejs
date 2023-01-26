@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
 
 <h1><%= job.companyName %> <span><%= job.job %></span></h1>
-
-<a href="/jobs/"> go back 👈🏼</a>
-<a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
-<a id="print" href="#">Print PDF 🖨️</a>
-
+<div class="other-links">
+  <a href="/jobs/"> go back 👈🏼</a>
+  <a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
+  <a id="print" href="#">Print PDF 🖨️</a>
+</div>
 <div class="show-ctr">
   <div class="show-col">
     <table id="show-tbl">

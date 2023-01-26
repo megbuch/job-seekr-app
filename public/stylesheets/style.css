@@ -44,6 +44,16 @@ h1 {
   letter-spacing: 3px;
 }
 
+textarea,
+input,
+select {
+  font: 14px Helvetica, Arial, sans-serif;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  line-height: 1.5em;
+}
+
 a {
   text-decoration: none;
   font-weight: 500;
@@ -63,8 +73,8 @@ a:hover {
 .ctr {
   display: flex;
   flex-direction: column;
-  width: 85vw;
-  margin: 0 auto;
+  width: 95vw;
+  align-items: center;
 }
 
 /* header styles*/
@@ -94,7 +104,6 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   margin: 0px 20px;
-  max-width: 100%;
 }
 
 td {
@@ -104,6 +113,16 @@ td {
 
 tr:nth-child(odd) {
   background-color: #ffffff;
+}
+
+.index-col {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgb(211, 211, 211);
 }
 
 #index-tbl tr:not(:first-child):nth-child(even),
@@ -142,24 +161,26 @@ textarea {
 .show-ctr {
   display: flex;
   justify-content: space-evenly;
-  margin: 30px 100px;
+  margin: 10px 100px;
+  gap: 20px;
 }
 
 .show-col {
+  min-width: 25%;
   display: flex;
   flex-direction: column;
-  max-width: 80%;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgb(211, 211, 211);
   padding: 15px;
-  margin: 0 auto;
-  gap: 3em;
+  margin: 20px auto;
+  gap: 20px;
 }
 
-#events-tbl {
+.events-tbl td {
   text-align: left;
   max-width: 100%;
+  padding: 10px;
 }
 
 #show-tbl {
@@ -175,17 +196,89 @@ ul {
 
 /* edit styles */
 
-#edit-form {
-  border: 2px solid rgba(255, 255, 255, 0.733);
+#edit-form,
+#create-form {
+  border: 2px solid rgba(255, 255, 255, 0.438);
   border-radius: 9px;
-  margin: 0 auto;
-  max-width: 100%;
+  margin-top: 15px;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.733);
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.26);
   display: flex;
   flex-direction: column;
 }
 
+textarea,
+select,
+input {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+select,
+input {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+input[type="submit"] {
+  width: 30px;
+  line-height: 0;
+  background-color: rgb(80, 68, 248);
+  border: 1px solid rgb(30, 17, 211);
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 10px;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(30, 17, 211);
+}
+
+.other-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#delete-job-btn {
+  width: 100px;
+}
+
+.small-delete-btn {
+  margin: 0px 30px;
+}
+
+.add-subdoc {
+  width: 100%;
+  background-color: rgba(40, 53, 236, 0.514);
+  color: white;
+}
+
+form input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  line-height: 20px;
+}
+
+/* create styles */
+
+#large-btn,
+#edit-large-btn {
+  display: block;
+  width: 80%;
+  height: 45px;
+  font-size: 20px;
+  margin: 10px auto;
+}
 /* footer styles */
 
 /* media queries */

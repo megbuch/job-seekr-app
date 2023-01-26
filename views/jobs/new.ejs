@@ -6,7 +6,7 @@
     This form is short and sweet — I know you're busy!<br />
     Be sure to use the Job Editor to add events and contacts. 👌<br />
   </h4>
-  <form action="/jobs" method="POST">
+  <form id="create-form" action="/jobs" method="POST">
     <label>Company Name *</label>
     <input type="string" name="companyName" placeholder="Google" /><br />
     <label>Position *</label>
@@ -14,10 +14,10 @@
     <label>Category</label>
     <input type="string" name="jobCategory" placeholder="Front-end" /><br />
     <label>Industry</label>
-    <input type="string" name="industry" placeholder="Technology" />><br />
+    <input type="string" name="industry" placeholder="Technology" /><br />
     <label>Location</label>
     <input type="string" name="location" placeholder="Mountain View, CA" />
-    ><br />
+    <br />
     <label>Work Style</label>
     <select name="workStyle">
       <option disabled selected value>-- select one --</option>
@@ -57,7 +57,7 @@
       name="companyDescription"
       placeholder="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing..."
     ></textarea>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" id="large-btn" />
   </form>
 </div>
 
