@@ -21,7 +21,7 @@ body {
       rgba(212, 139, 255, 0.459),
       rgba(17, 140, 255, 0.479)
     ),
-    url(http://localhost:3000/images/hero.jpg);
+    url(../images/hero.jpg);
 }
 
 .body-default {
