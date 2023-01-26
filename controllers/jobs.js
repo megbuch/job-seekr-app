@@ -25,7 +25,7 @@ async function index(req, res) {
 }
 
 function newJob(req, res) {
-  res.render("jobs/new");
+  res.render("jobs/new", { bodyClass: "body-default" });
 }
 
 async function create(req, res) {

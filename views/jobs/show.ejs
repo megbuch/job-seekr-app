@@ -6,79 +6,100 @@
 <a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
 <a id="print" href="#">Print PDF 🖨️</a>
 
-<table id="details-tbl">
-  <tr>
-    <th>Company</th>
-    <td><%= job.companyName %></td>
-    <th>Industry</th>
-    <td><%= job.industry %></td>
-  </tr>
-  <tr>
-    <th>Position</th>
-    <td><%= job.job %></td>
-    <th>Category</th>
-    <td><%= job.jobCategory %></td>
-  </tr>
-  <tr>
-    <th>Location</th>
-    <td><%= job.location %></td>
-    <th>Work Style</th>
-    <td><%= job.workStyle %></td>
-  </tr>
-  <tr>
-    <th>Job Listing</th>
-    <td>
-      <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
-    </td>
-  </tr>
-  <tr>
-    <th>Job Description</th>
-    <td colspan="4"><%= job.jobDescription %></td>
-  </tr>
-  <tr>
-    <th>Qualifications</th>
-    <td colspan="4"><%= job.qualifications %></td>
-  </tr>
-  <tr>
-    <th>Company Description</th>
-    <td colspan="4"><%= job.companyDescription %></td>
-  </tr>
-</table>
-
-<h2>Event Log</h2>
-<% if (job.events.length > 0) { %>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Event</th>
-  </tr>
-  <% job.events.forEach(function(e) { %>
-  <tr>
-    <td><%= e.date.toLocaleString() %></td>
-    <td><%= e.typeOfEvent %></td>
-  </tr>
-  <% }); %>
-</table>
-<% } else { %>
-<p>No events yet!</p>
-<% } %>
-
-<h2>Contacts</h2>
-<% if (job.contacts.length > 0) { %>
-<ul>
-  <% job.contacts.forEach(function(c) { %>
-  <li><b><%= c.name ? c.name : 'None' %></b></li>
-  <li><%= c.position %></li>
-  <li><%= c.email %></li>
-  <li><%= c.phone %></li>
-  <li><%= c.location %></li>
-  <li>
-    <a href="<%= c.website %>" target="_blank">view website</a>
-  </li>
-  <br />
-  <% }); %>
-  <br />
-</ul>
-<% } else { %>
-<p>No contacts yet!</p>
-<% } %> <%- include('../partials/footer') %>
+<div class="show-ctr">
+  <div class="show-col">
+    <table id="show-tbl">
+      <tr>
+        <th>Company</th>
+        <td><%= job.companyName %></td>
+      </tr>
+      <tr>
+        <th>Industry</th>
+        <td><%= job.industry %></td>
+      </tr>
+      <tr>
+        <th>Position</th>
+        <td><%= job.job %></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td><%= job.jobCategory %></td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td><%= job.location %></td>
+      </tr>
+      <tr>
+        <th>Work Style</th>
+        <td><%= job.workStyle %></td>
+      </tr>
+      <tr>
+        <th>Job Listing</th>
+        <td>
+          <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">Job Description</th>
+      </tr>
+      <tr>
+        <td colspan="2"><%= job.jobDescription %></td>
+      </tr>
+      <tr>
+        <th>Qualifications</th>
+      </tr>
+      <tr>
+        <td colspan="2"><%= job.qualifications %></td>
+      </tr>
+      <tr>
+        <th>Company Description</th>
+      </tr>
+      <tr>
+        <td colspan="2"><%= job.companyDescription %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="show-col">
+    <div>
+      <h2>Event Log</h2>
+      <% if (job.events.length > 0) { %>
+      <table class="events-tbl">
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+        </tr>
+        <% job.events.forEach(function(e) { %>
+        <tr>
+          <td><%= e.date.toLocaleString() %></td>
+          <td><%= e.typeOfEvent %></td>
+        </tr>
+        <% }); %>
+      </table>
+      <% } else { %>
+      <p>No events yet!</p>
+      <% } %>
+    </div>
+    <div>
+      <h2>Contacts</h2>
+      <% if (job.contacts.length > 0) { %>
+      <ul>
+        <% job.contacts.forEach(function(c) { %>
+        <li><b><%= c.name ? c.name : 'None' %></b></li>
+        <li><%= c.position %></li>
+        <li><%= c.email %></li>
+        <li><%= c.phone %></li>
+        <li><%= c.location %></li>
+        <li>
+          <a href="<%= c.website %>" target="_blank">view website</a>
+        </li>
+        <br />
+        <% }); %>
+        <br />
+      </ul>
+      <% } else { %>
+      <p>No contacts yet!</p>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

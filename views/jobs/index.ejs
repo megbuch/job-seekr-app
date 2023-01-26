@@ -1,34 +1,36 @@
 <%- include('../partials/header.ejs') %>
 
 <div class="ctr">
-  <h1>All Jobs</h1>
-  <h2>Welcome, <span><%= name %></span>! <% if (jobs.length > 0) { %></h2>
-  <br />You are watching <%= jobs.length %> jobs! <% } %> <% if(jobs.length > 0)
-  {%>
-  <table>
-    <tr>
-      <th>Company</th>
-      <th>Position</th>
-      <th>Location</th>
-      <th>Upcoming Event</th>
-    </tr>
-    <% jobs.forEach(function(j) { %>
-    <tr onclick="window.location='/jobs/<%= j._id %>'">
-      <td><%= j.companyName %></td>
-      <td><%= j.job %></td>
-      <td><%= j.location %></td>
-      <td>
-        <%= j.events[0] ? j.events[j.events.length-1].typeOfEvent : '-' %>
-        <br /><%= j.events[0] ?
-        j.events[j.events.length-1].date.toLocaleString() : '-'%>
-      </td>
-    </tr>
-    <% }) %>
-  </table>
-  <% } else { %>
-  <h2>Okay... Let's start by adding your first job profile!</h2>
-  <a href="/jobs/new">Create new job!</a>
-  <% } %>
+  <h1>Welcome, <span id="accent"><%= name %></span>!</h1>
+  <% if (jobs.length > 0) { %>
+  <h2>You are watching <%= jobs.length %> jobs!</h2>
+  <div class="show-col">
+    <% } %> <% if(jobs.length > 0) {%>
+    <table id="index-tbl">
+      <tr>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Location</th>
+        <th>Upcoming Event</th>
+      </tr>
+      <% jobs.forEach(function(j) { %>
+      <tr onclick="window.location='/jobs/<%= j._id %>'">
+        <td><%= j.companyName %></td>
+        <td><%= j.job %></td>
+        <td><%= j.location %></td>
+        <td>
+          <%= j.events[0] ? j.events[j.events.length-1].typeOfEvent : '-' %>
+          <br /><%= j.events[0] ?
+          j.events[j.events.length-1].date.toLocaleString() : '-'%>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <% } else { %>
+    <h2>Okay... Let's start by adding your first job profile!</h2>
+    <a href="/jobs/new">Create new job!</a>
+    <% } %>
+  </div>
 </div>
 
 <%- include('../partials/footer.ejs') %>

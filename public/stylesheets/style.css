@@ -18,8 +18,8 @@ body {
 .body-landing {
   background-image: linear-gradient(
       to right bottom,
-      rgba(115, 227, 255, 0.685),
-      rgb(248, 191, 194)
+      rgba(212, 139, 255, 0.459),
+      rgba(17, 140, 255, 0.479)
     ),
     url(http://localhost:3000/images/hero.jpg);
 }
@@ -27,28 +27,37 @@ body {
 .body-default {
   background-image: linear-gradient(
     to right bottom,
-    rgba(115, 227, 255, 0.685),
-    rgb(248, 191, 194)
+    rgba(189, 157, 207, 0.459),
+    rgba(17, 140, 255, 0.479)
   );
 }
 
 h1,
 h2 {
   font-family: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+  font-weight: 500;
 }
 
-h2 {
+h1 {
   font-size: 60px;
+  margin-bottom: 0;
+  letter-spacing: 3px;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  font-weight: 500;
+  color: rgb(80, 68, 248);
   border-bottom: 2px solid transparent;
 }
 
 a:hover {
-  border-bottom: 2px solid rgb(30, 43, 238);
+  color: rgb(0, 0, 0);
+}
+
+#accent {
+  font-weight: 700;
+  color: #1f1f1f;
 }
 
 .ctr {
@@ -72,6 +81,11 @@ nav {
 #nav-links {
   display: flex;
   gap: 40px;
+  border-bottom: 2px solid transparent;
+}
+
+#nav-links a:hover {
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 /* index styles */
@@ -79,6 +93,8 @@ nav {
 table {
   border-collapse: collapse;
   table-layout: fixed;
+  margin: 0px 20px;
+  max-width: 100%;
 }
 
 td {
@@ -86,20 +102,23 @@ td {
   line-height: 23px;
 }
 
-tr:not(:first-child):nth-child(odd) {
-  background-color: rgb(216, 216, 216);
+tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
-tr:nth-child(even) {
-  background-color: #f0f0f0;
+#index-tbl tr:not(:first-child):nth-child(even),
+#show-tbl tr:nth-child(odd),
+.events-tbl tr:not(:first-child):nth-child(even) {
+  background-color: #ebebeb;
 }
 
-#all-jobs tr:first-child {
+#index-tbl tr:first-child {
   background-color: none;
 }
 
-#all-jobs tr:not(:first-child):hover {
-  background-color: #e4e4e4;
+#index-tbl tr:not(:first-child):hover {
+  background-color: rgba(80, 68, 248, 0.521);
+  color: white;
   cursor: pointer;
 }
 
@@ -107,6 +126,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   letter-spacing: 2px;
+  padding: 10px 20px;
 }
 
 textarea {
@@ -115,4 +135,78 @@ textarea {
 
 .hidden {
   display: none;
+}
+
+/* show styles */
+
+.show-ctr {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 100px;
+}
+
+.show-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgb(211, 211, 211);
+  padding: 15px;
+  margin: 0 auto;
+  gap: 3em;
+}
+
+#events-tbl {
+  text-align: left;
+  max-width: 100%;
+}
+
+#show-tbl {
+  text-align: justify;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+  margin: 15px;
+  padding: 0;
+}
+
+/* edit styles */
+
+#edit-form {
+  border: 2px solid rgba(255, 255, 255, 0.733);
+  border-radius: 9px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.733);
+  display: flex;
+  flex-direction: column;
+}
+
+/* footer styles */
+
+/* media queries */
+
+@media only screen and (max-width: 1200px) {
+  .show-ctr {
+    flex-direction: column;
+    margin: 0 0;
+  }
+  .show-col {
+    width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .show-col {
+    width: 100%;
+  }
+
+  th,
+  td {
+    text-align: center;
+  }
 }

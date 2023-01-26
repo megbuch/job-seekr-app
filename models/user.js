@@ -19,7 +19,6 @@ const userSchema = new Schema(
     },
     email: String,
     avatar: String,
-    goal: Number,
   },
   {
     timestamps: true,
