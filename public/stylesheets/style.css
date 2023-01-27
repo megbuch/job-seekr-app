@@ -273,6 +273,7 @@ input[type="submit"]:hover {
 .other-links {
   display: flex;
   gap: 60px;
+  padding-top: 10px;
 }
 
 .other-links a:hover {

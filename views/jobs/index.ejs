@@ -4,6 +4,9 @@
   <h1>Welcome, <span id="accent"><%= name %></span>!</h1>
   <% if (jobs.length > 0) { %>
   <h2>You are watching <%= jobs.length %> jobs!</h2>
+  <div class="other-links">
+    <a href="/jobs/new">Create new job</a>
+  </div>
 </div>
 <div class="ctr">
   <% } %> <% if(jobs.length > 0) {%>
