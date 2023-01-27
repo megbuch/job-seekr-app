@@ -6,17 +6,23 @@
   method="POST"
 ></form>
 
-<h1>Job Editor</h1>
-<div class="other-links">
-  <a href="/jobs/<%= job.id %>"> go back 👈🏼</a>
-  <input
-    id="delete-job-btn"
-    form="delete-job"
-    value="Delete Job"
-    type="submit"
-    onclick="return confirm('Are you sure?')"
-  />
+<div class="heading-ctr">
+  <h1>Job Editor</h1>
+  <div class="other-links">
+    <a href="/jobs/<%=job._id%>">Go back</a>
+    <a href="/jobs/">All jobs</a>
+    <a href="/jobs/new">Create new job</a>
+    <a>
+      <input
+        id="delete-job-btn"
+        form="delete-job"
+        value="Delete Job"
+        type="submit"
+        onclick="return confirm('Are you sure?')"
+    /></a>
+  </div>
 </div>
+
 <div class="show-ctr">
   <form
     id="edit-form"

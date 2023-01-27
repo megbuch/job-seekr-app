@@ -1,69 +1,70 @@
 <%- include('../partials/header') %>
-
-<h1><%= job.companyName %> <span><%= job.job %></span></h1>
-<div class="other-links">
-  <a href="/jobs/"> go back 👈🏼</a>
-  <a href="/jobs/<%= job.id %>/edit">Edit Job Profile ✍🏼</a>
-  <a id="print" href="#">Print PDF 🖨️</a>
-</div>
-<div class="show-ctr">
-  <div class="show-col">
-    <table id="show-tbl">
-      <tr>
-        <th>Company</th>
-        <td><%= job.companyName %></td>
-      </tr>
-      <tr>
-        <th>Industry</th>
-        <td><%= job.industry %></td>
-      </tr>
-      <tr>
-        <th>Position</th>
-        <td><%= job.job %></td>
-      </tr>
-      <tr>
-        <th>Category</th>
-        <td><%= job.jobCategory %></td>
-      </tr>
-      <tr>
-        <th>Location</th>
-        <td><%= job.location %></td>
-      </tr>
-      <tr>
-        <th>Work Style</th>
-        <td><%= job.workStyle %></td>
-      </tr>
-      <tr>
-        <th>Job Listing</th>
-        <td>
-          <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
-        </td>
-      </tr>
-      <tr>
-        <th colspan="2">Job Description</th>
-      </tr>
-      <tr>
-        <td colspan="2"><%= job.jobDescription %></td>
-      </tr>
-      <tr>
-        <th>Qualifications</th>
-      </tr>
-      <tr>
-        <td colspan="2"><%= job.qualifications %></td>
-      </tr>
-      <tr>
-        <th>Company Description</th>
-      </tr>
-      <tr>
-        <td colspan="2"><%= job.companyDescription %></td>
-      </tr>
-    </table>
+<div class="heading-ctr">
+  <h1><%= job.companyName %> <span><%= job.job %></span></h1>
+  <div class="other-links">
+    <a href="/jobs/">Go back</a>
+    <a href="/jobs/">All jobs</a>
+    <a href="/jobs/new">Create new job</a>
+    <a href="/jobs/<%= job.id %>/edit">Edit job profile</a>
+    <a id="print" href="#">Print PDF</a>
   </div>
-  <div class="show-col">
-    <div>
+</div>
+<div class="ctr">
+  <table id="show-tbl">
+    <tr>
+      <th>Company</th>
+      <td><%= job.companyName %></td>
+    </tr>
+    <tr>
+      <th>Industry</th>
+      <td><%= job.industry %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= job.job %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= job.jobCategory %></td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td><%= job.location %></td>
+    </tr>
+    <tr>
+      <th>Work Style</th>
+      <td><%= job.workStyle %></td>
+    </tr>
+    <tr>
+      <th>Job Listing</th>
+      <td>
+        <a href="<%= job.jobListingUrl %>" target="_blank">Click here</a>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2">Job Description</th>
+    </tr>
+    <tr>
+      <td colspan="2"><%= job.jobDescription %></td>
+    </tr>
+    <tr>
+      <th>Qualifications</th>
+    </tr>
+    <tr>
+      <td colspan="2"><%= job.qualifications %></td>
+    </tr>
+    <tr>
+      <th>Company Description</th>
+    </tr>
+    <tr>
+      <td colspan="2"><%= job.companyDescription %></td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col">
       <h2>Event Log</h2>
       <% if (job.events.length > 0) { %>
-      <table class="events-tbl">
+      <table id="events-tbl">
         <tr>
           <th>Date</th>
           <th>Event</th>
@@ -79,9 +80,9 @@
       <p>No events yet!</p>
       <% } %>
     </div>
-    <div>
-      <h2>Contacts</h2>
-      <% if (job.contacts.length > 0) { %>
+    <div class="col">
+    <h2>Contacts</h2>
+    <% if (job.contacts.length > 0) { %>
       <ul>
         <% job.contacts.forEach(function(c) { %>
         <li><b><%= c.name ? c.name : 'None' %></b></li>
@@ -96,6 +97,7 @@
         <% }); %>
         <br />
       </ul>
+      </div>
       <% } else { %>
       <p>No contacts yet!</p>
       <% } %>

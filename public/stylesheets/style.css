@@ -18,18 +18,14 @@ body {
 .body-landing {
   background-image: linear-gradient(
       to right bottom,
-      rgba(212, 139, 255, 0.459),
-      rgba(17, 140, 255, 0.479)
+      rgba(255, 143, 139, 0.459),
+      rgba(100, 129, 223, 0.479)
     ),
     url(../images/hero.jpg);
 }
 
 .body-default {
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(189, 157, 207, 0.459),
-    rgba(17, 140, 255, 0.479)
-  );
+  background-color: white;
 }
 
 h1,
@@ -40,7 +36,7 @@ h2 {
 
 h1 {
   font-size: 60px;
-  margin-bottom: 0;
+  margin: 0;
   letter-spacing: 3px;
 }
 
@@ -56,8 +52,9 @@ select {
 
 a {
   text-decoration: none;
+  text-transform: lowercase;
   font-weight: 500;
-  color: rgb(80, 68, 248);
+  color: rgb(216, 92, 71);
   border-bottom: 2px solid transparent;
 }
 
@@ -66,15 +63,24 @@ a:hover {
 }
 
 #accent {
-  font-weight: 700;
-  color: #1f1f1f;
+  font-weight: 800;
 }
 
 .ctr {
   display: flex;
   flex-direction: column;
-  width: 95vw;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.heading-ctr {
+  background-color: rgb(19, 19, 19);
+  width: 100%;
+  color: white;
+  text-align: left;
+  padding: 10px 0px 20px 30px;
 }
 
 /* header styles*/
@@ -88,9 +94,8 @@ nav {
   border-bottom: 2px solid #e9e9e9;
 }
 
-#nav-links {
-  display: flex;
-  gap: 40px;
+#nav-links a {
+  text-transform: capitalize;
   border-bottom: 2px solid transparent;
 }
 
@@ -100,10 +105,17 @@ nav {
 
 /* index styles */
 
+#index-tbl {
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   table-layout: fixed;
-  margin: 0px 20px;
+  border: 1px solid rgb(202, 202, 202);
+  margin: 50px;
+  width: 100%;
+  text-align: left;
 }
 
 td {
@@ -115,19 +127,9 @@ tr:nth-child(odd) {
   background-color: #ffffff;
 }
 
-.index-col {
-  max-width: 90%;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgb(211, 211, 211);
-}
-
 #index-tbl tr:not(:first-child):nth-child(even),
 #show-tbl tr:nth-child(odd),
-.events-tbl tr:not(:first-child):nth-child(even) {
+#events-tbl tr:not(:first-child):nth-child(even) {
   background-color: #ebebeb;
 }
 
@@ -136,7 +138,7 @@ tr:nth-child(odd) {
 }
 
 #index-tbl tr:not(:first-child):hover {
-  background-color: rgba(80, 68, 248, 0.521);
+  background-color: rgba(228, 84, 59, 0.719);
   color: white;
   cursor: pointer;
 }
@@ -158,29 +160,25 @@ textarea {
 
 /* show styles */
 
-.show-ctr {
+.row {
   display: flex;
-  justify-content: space-evenly;
-  margin: 10px 100px;
-  gap: 20px;
+  flex-direction: row;
+  gap: 5em;
 }
 
-.show-col {
-  min-width: 25%;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgb(211, 211, 211);
-  padding: 15px;
-  margin: 20px auto;
-  gap: 20px;
+.col {
+  width: 50%;
 }
 
-.events-tbl td {
+li {
   text-align: left;
-  max-width: 100%;
-  padding: 10px;
+  border-left: 2px solid rgba(228, 84, 59, 0.719);
+  padding-left: 18px;
+}
+
+#events-tbl {
+  width: 80%;
+  margin: 30px auto;
 }
 
 #show-tbl {
@@ -227,24 +225,28 @@ input {
 input[type="submit"] {
   width: 30px;
   line-height: 0;
-  background-color: rgb(80, 68, 248);
-  border: 1px solid rgb(30, 17, 211);
+  background-color: rgb(253, 91, 69);
+  border: 1px solid rgba(226, 60, 48, 0.966);
   border-radius: 4px;
   color: #fff;
   padding: 10px 10px;
+  margin: -5px;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
-  background-color: rgb(30, 17, 211);
+  background-color: rgb(228, 51, 51);
 }
 
 .other-links {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  gap: 60px;
+}
+
+.other-links a:hover {
+  color: white;
 }
 
 #delete-job-btn {
@@ -283,23 +285,28 @@ textarea {
 
 /* media queries */
 
-@media only screen and (max-width: 1200px) {
-  .show-ctr {
-    flex-direction: column;
-    margin: 0 0;
+@media only screen and (max-width: 1300px) {
+  .ctr {
+    width: 90%;
   }
-  .show-col {
-    width: 100vw;
+
+  .row {
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .col {
+    width: 100%;
+  }
+  #events-tbl {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .show-col {
+  .ctr {
     width: 100%;
-  }
-
-  th,
-  td {
-    text-align: center;
   }
 }
