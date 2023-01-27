@@ -72,7 +72,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
 }
 
 .heading-ctr {
@@ -113,8 +113,8 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   border: 1px solid rgb(202, 202, 202);
-  margin: 50px;
   width: 100%;
+  margin: 50px auto;
   text-align: left;
 }
 
@@ -163,7 +163,7 @@ textarea {
 .row {
   display: flex;
   flex-direction: row;
-  gap: 5em;
+  justify-content: space-evenly;
 }
 
 .col {
@@ -174,11 +174,6 @@ li {
   text-align: left;
   border-left: 2px solid rgba(228, 84, 59, 0.719);
   padding-left: 18px;
-}
-
-#events-tbl {
-  width: 80%;
-  margin: 30px auto;
 }
 
 #show-tbl {
@@ -194,16 +189,40 @@ ul {
 
 /* edit styles */
 
+.ctr-edit {
+  width: 90%;
+  margin: 0 auto;
+}
+#create-form,
 #edit-form,
-#create-form {
-  border: 2px solid rgba(255, 255, 255, 0.438);
+#events,
+#contacts {
+  background-color: rgba(201, 201, 201, 0.452);
+  border: 2px solid rgb(226, 226, 226);
   border-radius: 9px;
   margin-top: 15px;
   padding: 10px;
-  width: 40%;
-  background-color: rgba(255, 255, 255, 0.26);
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#edit-form {
+  width: 700px;
+}
+
+#contacts,
+#events {
+  width: 400px;
+}
+
+.events-tbl {
+  table-layout: auto;
+  border: none;
+}
+
+.small-delete-btn {
+  padding-right: 50px;
 }
 
 textarea,
@@ -257,12 +276,6 @@ input[type="submit"]:hover {
   margin: 0px 30px;
 }
 
-.add-subdoc {
-  width: 100%;
-  background-color: rgba(40, 53, 236, 0.514);
-  color: white;
-}
-
 form input,
 textarea {
   display: block;
@@ -274,9 +287,11 @@ textarea {
 /* create styles */
 
 #large-btn,
-#edit-large-btn {
+#edit-large-btn,
+#events-btn,
+#contacts-btn {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 45px;
   font-size: 20px;
   margin: 10px auto;
@@ -298,9 +313,6 @@ textarea {
   }
 
   .col {
-    width: 100%;
-  }
-  #events-tbl {
     width: 100%;
   }
 }

@@ -19,6 +19,7 @@ const eventSchema = new Schema(
   {
     typeOfEvent: {
       type: String,
+      required: true,
       enum: [
         "Wishlist",
         "Application in Progress",
@@ -35,7 +36,10 @@ const eventSchema = new Schema(
         "Application Rejected",
       ],
     },
-    date: Date,
+    date: {
+      type: Date,
+      required: true,
+    },
   },
   {
     timestamps: true,
