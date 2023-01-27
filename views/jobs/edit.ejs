@@ -42,7 +42,7 @@
       <input
         type="string"
         name="jobCategory"
-        value="<%= job.category %>"
+        value="<%= job.jobCategory %>"
       /><br />
       <label>Industry</label>
       <input type="string" name="industry" value="<%= job.industry %>" /><br />
@@ -101,7 +101,6 @@
         </tr>
         <% }); %>
       </table>
-
       <form
         id="events"
         method="POST"
@@ -134,14 +133,20 @@
         <input type="submit" id="events-btn" value="Add Event" />
       </form>
     </div>
-
     <div>
       <h2>Add/Delete Contacts</h2>
       <ul>
         <% job.contacts.forEach(function(c) { %>
         <li>
+          <b><%= c.name ? c.name : 'None' %></b>
+        </li>
+        <li><%= c.position %></li>
+        <li><%= c.email %></li>
+        <li><%= c.phone %></li>
+        <li><%= c.location %></li>
+        <li>
           <div class="other-links">
-            <b><%= c.name ? c.name : 'None' %></b>
+            <a href="<%= c.website %>" target="_blank">view website</a>
             <form action="/contacts/<%= c._id %>?_method=DELETE" method="POST">
               <input
                 class="small-delete-btn"
@@ -152,17 +157,10 @@
             </form>
           </div>
         </li>
-        <li><%= c.position %></li>
-        <li><%= c.email %></li>
-        <li><%= c.phone %></li>
-        <li><%= c.location %></li>
-        <li>
-          <a href="<%= c.website %>" target="_blank">view website</a>
-        </li>
+
         <br />
         <% }); %>
       </ul>
-
       <form
         id="contacts"
         method="POST"

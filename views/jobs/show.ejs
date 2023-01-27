@@ -78,7 +78,7 @@
         <% }); %>
       </table>
       <% } else { %>
-      <p>No events yet!</p>
+        <a href="/jobs/<%= job.id %>/edit">Add an event</a>
       <% } %>
     </div>
     <div class="col">
@@ -100,7 +100,7 @@
       </ul>
       </div>
       <% } else { %>
-      <p>No contacts yet!</p>
+      <a href="/jobs/<%= job.id %>/edit">Add a contact</a>
       <% } %>
     </div>
   </div>
