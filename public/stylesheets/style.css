@@ -307,6 +307,7 @@ textarea {
   font-size: 20px;
   margin: 10px auto;
 }
+
 /* footer styles */
 
 footer {
@@ -328,11 +329,12 @@ footer a:hover {
 }
 
 /* landing page styles */
+
 #landing-card {
   background-color: rgba(255, 255, 255, 0.473);
   border-radius: 10px;
-  width: 600px;
-  height: 600px;
+  width: 40vw;
+  height: 700px;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -376,6 +378,7 @@ button {
 button:hover {
   background-color: rgb(168, 46, 24);
 }
+
 /* media queries */
 
 @media only screen and (max-width: 1300px) {
@@ -393,10 +396,47 @@ button:hover {
   .col {
     width: 100%;
   }
+
+  #landing-card {
+    width: 60vw;
+    height: 700px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  #landing-h1 {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #landing-card {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #landing-card {
+    width: 90vw;
+    height: 600px;
+    margin-top: 100px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .ctr {
     width: 100%;
+  }
+
+  #landing-card {
+    padding: 30px;
+  }
+
+  #landing-h1 {
+    font-size: 50px;
   }
 }
